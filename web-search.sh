@@ -16,7 +16,7 @@ if [ "$action" == "Search Web" ]; then
     fi
 
     # Check if the query is a URL (contains '.' or starts with http)
-    if [[ "$query" =~ ^https?://.* || "$query" =~ \. ]]; then
+    if [[ "$query" =~ ^https?://.* || ( "$query" =~ \. && !( "$query" =~ ! ) ) ]]; then
         # Open the URL in Firefox
         firefox "$query" &
     else
